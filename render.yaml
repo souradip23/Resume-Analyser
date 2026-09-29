@@ -6,3 +6,23 @@ services:
     dockerfilePath: ./Dockerfile
     autoDeploy: true
     branch: main
+
+    envVars:
+      - key: url
+        fromDatabase:
+          name: resume-analyser-db
+          property: connectionString
+
+      - key: uname
+        fromDatabase:
+          name: resume-analyser-db
+          property: user
+
+      - key: upass
+        fromDatabase:
+          name: resume-analyser-db
+          property: password
+
+databases:
+  - name: resume-analyser-db
+    plan: free
